@@ -14,7 +14,7 @@ public class RendererFactory {
     private final Map<String, ExifRenderer> renderers;
 
     /**
-     * Default.
+     * Default constructor.
      */
     public RendererFactory() {
         super();
