@@ -1,4 +1,4 @@
 starter
 =======
 
-Small test projects
+This repo contains many small starter/test projects.
