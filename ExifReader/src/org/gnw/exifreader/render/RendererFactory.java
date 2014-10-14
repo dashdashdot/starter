@@ -5,6 +5,7 @@ import java.util.Map;
 
 /**
  * Provides renderers.
+ * 
  * @author Gerard Whitehead
  *
  */
@@ -29,7 +30,9 @@ public class RendererFactory {
 
     /**
      * Provide a renderer, typically CSV, TEXT or XML.
-     * @param name The name of the renderer.
+     * 
+     * @param name
+     *            The name of the renderer.
      * @return A renderer.
      */
     public final ExifRenderer getRenderer(final String name) {

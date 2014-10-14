@@ -20,6 +20,7 @@ import com.drew.metadata.Metadata;
 
 /**
  * An EXIF reader.
+ * 
  * @author Gerard Whitehead
  *
  */
@@ -33,26 +34,33 @@ public class Reader {
     }
 
     /**
-     * Read the files off the command line and render them in the required output format.
-     * @param line The command line.
+     * Read the files off the command line and render them in the required
+     * output format.
+     * 
+     * @param line
+     *            The command line.
      */
     public final void render(final CommandLine line) {
         // First work out which output rendering format we're going to use.
-        ExifRenderer renderer = getRenderer(line);
+        final ExifRenderer renderer = getRenderer(line);
 
         // Now read the files.
         for (String fileName : line.getArgs()) {
-            File file = new File(fileName);
-            try {
-                Metadata meta = ImageMetadataReader.readMetadata(file);
-                renderer.render(meta);
-            } catch (ImageProcessingException e) {
-                System.out.println("Couldn't extract EXIF metadata from file");
-                e.printStackTrace();
-            } catch (IOException e) {
-                System.out.println("Problem reading file");
-                e.printStackTrace();
-            }
+            render(fileName, renderer);
+        }
+    }
+
+    private void render(final String fileName, final ExifRenderer renderer) {
+        File file = new File(fileName);
+        try {
+            Metadata meta = ImageMetadataReader.readMetadata(file);
+            renderer.render(meta);
+        } catch (ImageProcessingException e) {
+            System.out.println("Couldn't extract EXIF metadata from file");
+            e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Problem reading file");
+            e.printStackTrace();
         }
     }
 
@@ -81,7 +89,7 @@ public class Reader {
         ExifRenderer renderer = this.renderers.getRenderer("TEXT");
         // But check the command line options
         if (line.hasOption("format")) {
-            String format = line.getOptionValue("format").toUpperCase();
+            final String format = line.getOptionValue("format").toUpperCase();
             if (renderers.hasRenderer(format)) {
                 renderer = renderers.getRenderer(format);
             }
@@ -92,13 +100,8 @@ public class Reader {
     @SuppressWarnings("static-access")
     private Options getOptions() {
 
-        Option format = OptionBuilder
-                .withArgName("format")
-                .isRequired(false)
-                .hasArgs(1)
-                .withDescription(
-                        "Optional output format: " + this.renderers.toString())
-                .create("format");
+        Option format = OptionBuilder.withArgName("format").isRequired(false).hasArgs(1)
+                .withDescription("Optional output format: " + this.renderers.toString()).create("format");
 
         return new Options().addOption(format);
     }

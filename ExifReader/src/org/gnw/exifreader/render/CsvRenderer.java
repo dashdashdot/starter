@@ -5,7 +5,9 @@ import com.drew.metadata.Metadata;
 import com.drew.metadata.Tag;
 
 /**
- * A text renderer called CSV producing three comma delimited columns: directory, tag, value.
+ * A text renderer called CSV producing three comma delimited columns:
+ * directory, tag, value. The renderer is intelligent enough to escape any
+ * commas embedded within the EXIF tags or values.
  * 
  * @author Gerard Whitehead
  *
