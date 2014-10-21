@@ -13,7 +13,15 @@ public class TestParser {
         assertEquals(3,stack.size());
         assertEquals("a b \"c d e\"",stack.toString());
     }
-    
+
+    @Test
+    public void testQuotes() throws Exception {
+        Parser parser = new Parser();
+        Stack stack = parser.parse("a b \"c d e\"");
+        assertEquals(3,stack.size());
+        assertEquals("a b \"c d e\"",stack.toString());
+    }
+
     @Test(expected=ParserException.class) 
     public void testUnclosedBrackets() throws Exception {
         new Parser().parse("( a b");

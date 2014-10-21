@@ -8,9 +8,9 @@ import org.gnw.jstacker.commands.CommandFactory;
 
 public class Parser {
 
-    private final Stack        stack;
-    private final Map<String, String>  heap;
-    private final CommandFactory commands;
+    private final Stack               stack;
+    private final Map<String, String> heap;
+    private final CommandFactory      commands;
 
     public Parser() {
         super();
@@ -23,13 +23,9 @@ public class Parser {
         String remaining = input.trim();
         while (remaining.length() > 0) {
             if ("(".equals(remaining.substring(0, 1))) {
-                int i = remaining.indexOf(")");
-                if (i == -1) {
-                    throw new ParserException("Found a starting bracket with no end.");
-                }
-                String token = remaining.substring(1, i);
-                stack.push(token);
-                remaining = remaining.substring(i + 1).trim();
+                remaining = getEscapedToken(remaining, ")");
+            } else if ("\"".equals(remaining.substring(0, 1))) {
+                remaining = getEscapedToken(remaining, "\"");
             } else {
                 int i = remaining.indexOf(" ");
                 String token;
@@ -44,6 +40,16 @@ public class Parser {
             }
         }
         return this.stack;
+    }
+
+    private String getEscapedToken(String remaining, String closing) throws ParserException {
+        int i = remaining.indexOf(closing,1);
+        if (i == -1) {
+            throw new ParserException("Found a starting bracket/quote with no end.");
+        }
+        String token = remaining.substring(1, i);
+        stack.push(token);
+        return remaining.substring(i + 1).trim();
     }
 
     /**
