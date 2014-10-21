@@ -20,6 +20,7 @@ public class CommandFactory {
         add(new Def());
         add(new Dup());
         add(new While(parser));
+        add(new Clear());
     }
     
     public Map<String, Command> getCommands(Parser parser) {
