@@ -87,4 +87,11 @@ public class Parser {
             }
         }
     }
+
+    public String toString() {
+        StringBuilder output = new StringBuilder();
+        output.append("Stack: ").append(this.stack.toString()).append(System.lineSeparator());
+        output.append("Heap : ").append(this.heap.toString());
+        return output.toString();
+    }
 }
