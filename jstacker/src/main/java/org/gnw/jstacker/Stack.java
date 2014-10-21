@@ -21,6 +21,18 @@ public class Stack {
         return this.stack.removeFirst();
     }
 
+    public double popDouble() throws ParserException {
+        if (stack.size() == 0) {
+            throw new ParserException("Cannot perform command, the stack is empty");
+        }
+        String s = this.stack.removeFirst();
+        try {
+            return Double.valueOf(s);
+        } catch (Exception e) {
+            throw new ParserException("Could not convert stack entry into a number.  Found: " + s);
+        }
+    }
+
     public String peek() {
         return this.stack.peekFirst();
     }

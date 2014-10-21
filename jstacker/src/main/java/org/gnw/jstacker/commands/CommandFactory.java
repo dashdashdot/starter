@@ -9,7 +9,7 @@ public class CommandFactory {
 
     private final Map<String, Command> commands = new HashMap<String, Command>();
 
-    public CommandFactory(Parser parser) {
+    public CommandFactory(final Parser parser) {
         add(new Pop());
         add(new Sub());
         add(new Add());
@@ -23,11 +23,11 @@ public class CommandFactory {
         add(new Clear());
     }
     
-    public Map<String, Command> getCommands(Parser parser) {
+    public Map<String, Command> getCommands(final Parser parser) {
         return commands;
     }
 
-    private void add(Command command) {
+    private void add(final Command command) {
         commands.put(command.getName(), command);
     }
     
@@ -36,11 +36,11 @@ public class CommandFactory {
      * @param name The name of the command.
      * @return True if it exists.
      */
-    public boolean has ( String name ) {
+    public boolean has ( final String name ) {
         return this.commands.containsKey(name);
     }
     
-    public Command get ( String name ) {
+    public Command get ( final String name ) {
         return this.commands.get(name);
     }
 }

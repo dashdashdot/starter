@@ -11,7 +11,7 @@ public class While implements Command {
     private final Parser     parser;
     private static final int MAX_LOOPS = 1000;
 
-    public While(Parser parser) {
+    public While(final Parser parser) {
         super();
         this.parser = parser;
     }
@@ -20,7 +20,7 @@ public class While implements Command {
         return "while";
     }
 
-    public void run(Stack stack, Map<String, String> heap) throws ParserException {
+    public void run(final Stack stack, final Map<String, String> heap) throws ParserException {
         try {
             double i = Double.valueOf(stack.pop());
             String command = stack.pop();

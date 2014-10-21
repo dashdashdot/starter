@@ -12,7 +12,7 @@ public class TestSwap {
         Stack stack = parser.parse("bill fred swap");
         Assert.assertEquals("bill", stack.pop());
         Assert.assertEquals("fred", stack.pop());
-        Assert.assertEquals(0, stack.size());;
+        Assert.assertEquals(0, stack.size());
     }
     
     @Test(expected=ParserException.class)
