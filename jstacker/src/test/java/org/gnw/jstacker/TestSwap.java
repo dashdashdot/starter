@@ -14,8 +14,8 @@ public class TestSwap {
         Assert.assertEquals("fred", stack.pop());
         Assert.assertEquals(0, stack.size());
     }
-    
-    @Test(expected=ParserException.class)
+
+    @Test(expected = ParserException.class)
     public void testSwapEmpty() throws Exception {
         new Parser().parse("fred swap");
     }

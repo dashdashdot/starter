@@ -20,5 +20,5 @@ public class Mult implements Command {
     public int minStackSize() {
         return 2;
     }
-    
+
 }

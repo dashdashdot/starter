@@ -17,6 +17,6 @@ public class TestDef {
     public void testUsage() throws Exception {
         Parser parser = new Parser();
         Stack stack = parser.parse("hello greeting def greeting");
-        Assert.assertEquals("hello",stack.toString());
+        Assert.assertEquals("hello", stack.toString());
     }
 }

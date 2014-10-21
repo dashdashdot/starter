@@ -22,7 +22,7 @@ public class CommandFactory {
         add(new While(parser));
         add(new Clear());
     }
-    
+
     public Map<String, Command> getCommands(final Parser parser) {
         return commands;
     }
@@ -30,17 +30,19 @@ public class CommandFactory {
     private void add(final Command command) {
         commands.put(command.getName(), command);
     }
-    
+
     /**
      * Check to see if a command exists.
-     * @param name The name of the command.
+     * 
+     * @param name
+     *            The name of the command.
      * @return True if it exists.
      */
-    public boolean has ( final String name ) {
+    public boolean has(final String name) {
         return this.commands.containsKey(name);
     }
-    
-    public Command get ( final String name ) {
+
+    public Command get(final String name) {
         return this.commands.get(name);
     }
 }

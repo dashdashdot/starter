@@ -43,7 +43,7 @@ public class Parser {
     }
 
     private String getEscapedToken(String remaining, String closing) throws ParserException {
-        int i = remaining.indexOf(closing,1);
+        int i = remaining.indexOf(closing, 1);
         if (i == -1) {
             throw new ParserException("Found a starting bracket/quote with no end.");
         }

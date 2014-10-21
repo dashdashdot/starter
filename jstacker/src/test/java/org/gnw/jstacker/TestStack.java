@@ -11,7 +11,7 @@ public class TestStack {
         Stack stack = new Stack();
         stack.push("a");
         stack.push("b");
-        assertEquals("a b",stack.toString());
+        assertEquals("a b", stack.toString());
     }
 
 }
