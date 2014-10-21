@@ -14,6 +14,7 @@ public class CommandFactory {
         add(new Sub());
         add(new Add());
         add(new Div());
+        add(new Mult());
         add(new Swap());
         add(new Rev());
         add(new Def());
