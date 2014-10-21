@@ -6,4 +6,5 @@ This repo contains many small starter/test projects.  The list of projects so fa
 |Project|Comments|
 |-------|--------|
 |ExifReader |A Java command line program to read and print EXIF data from photographs.|
+|jstacker   |A simple java stack command reader.|
 
