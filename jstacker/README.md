@@ -8,6 +8,14 @@ This is a simple stack parser that reads an input string from left to right.  In
 3. If a token is recognised, then that command is run
 4. If a token is wrapped in parentheses, put it all on the stack
 
+For example "5 6 mult dup" follows the sequence:
+
+1. Put 5 on the stack
+2. Put 6 on the stack
+3. Take 5 and 6, multiply them together and put 30.0 on the stack
+4. Duplicate the top element on the stack
+5. Resulting in a stack of "30.0 30.0"
+
 The set of known commands is:
 
 |Command|Example    |Result|Description|
